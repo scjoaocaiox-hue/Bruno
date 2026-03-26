@@ -1,6 +1,82 @@
-.box {  border: 1px solid #ccc;  border-radius: 5px;  padding: 10px;  margin: 10px;}
-.box img {  max-width: 100%;  height: auto;}
-.price {  font-size: 1.5em;  color: #333;}
-.payment-section {  margin-top: 20px;  padding: 15px;  border-top: 1px solid #ccc;}
-.payment-section button {  background: #5cb85c;  color: white;  border: none;  padding: 10px 15px;  border-radius: 5px;}
-.payment-section button:hover {  background: #4cae4c;  cursor: pointer;}
+/* Complete styling for header with gradient background */
+header {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Product boxes with grid layout and hover animations */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.product-box {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.product-box:hover {
+    transform: scale(1.05);
+}
+
+/* Modal windows with payment options for PIX and credit card */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Form inputs with focus states */
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input:focus {
+    border-color: #ff8c00;
+}
+
+/* Buttons with gradient backgrounds and transitions */
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: background 0.3s;
+}
+button:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+    header {
+        font-size: 1.5em;
+    }
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+}
