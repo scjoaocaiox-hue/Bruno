@@ -1,0 +1,50 @@
+/**
+ * Base styles
+ */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gradient effect */
+.header {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+/* Responsive design */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Animation example */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.header {
+    animation: fadeIn 2s;
+}
+
+/* Roulette wheel styling */
+.roulette {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.roulette .segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #ff0000; /* Change segment color on each segment */
+    transform-origin: 100%;
+}
