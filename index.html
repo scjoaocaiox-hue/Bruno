@@ -3,41 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise Boxes</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="payment-modal.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to Surprise Boxes</h1>
+        <h1>Welcome to Our Store</h1>
     </header>
     <main>
-        <section id="boxes">
-            <h2>Available Surprise Boxes</h2>
-            <div class="box" id="box1">Box 1</div>
-            <div class="box" id="box2">Box 2</div>
-            <div class="box" id="box3">Box 3</div>
-        </section>
-        <section id="payment">
-            <h2>Payment Section</h2>
-            <form id="payment-form">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" name="card-number" required>
-                <label for="expiry">Expiry Date:</label>
-                <input type="text" id="expiry" name="expiry" required>
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required>
-                <button type="submit">Pay Now</button>
-            </form>
-        </section>
-        <section id="roulette">
-            <h2>Roulette Wheel</h2>
-            <button id="spin">Spin the Wheel</button>
-            <div id="result"></div>
-        </section>
+        <div class="product-box">
+            <img src="image1.jpg" alt="Product 1">
+            <h2>Product 1</h2>
+            <p>Price: $10.00</p>
+            <button class="buy-button" data-modal="modal1">Buy Now</button>
+        </div>
+        <div class="product-box">
+            <img src="image2.jpg" alt="Product 2">
+            <h2>Product 2</h2>
+            <p>Price: $20.00</p>
+            <button class="buy-button" data-modal="modal2">Buy Now</button>
+        </div>
+        <!-- Add more products as needed -->
     </main>
-    <footer>
-        <p>&copy; 2026 Surprise Boxes. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Options for Product 1</h2>
+            <form>
+                <label for="payment-method">Choose a payment method:</label>
+                <select name="payment-method" id="payment-method">
+                    <option value="credit-card">Credit Card</option>
+                    <option value="pix">PIX</option>
+                </select>
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Options for Product 2</h2>
+            <form>
+                <label for="payment-method">Choose a payment method:</label>
+                <select name="payment-method" id="payment-method">
+                    <option value="credit-card">Credit Card</option>
+                    <option value="pix">PIX</option>
+                </select>
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'block';
+            });
+        });
+        document.querySelectorAll('.close').forEach(span => {
+            span.onclick = function() {
+                this.parentElement.parentElement.style.display = 'none';
+            };
+        });
+    </script>
 </body>
 </html>
